@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clock</title>
+</head>
+<style>
+
+html,body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #0f3854;
+    background: radial-gradient(ellipse at center,  #0a2e38  0%, #000000 70%);
+    background-size: 100%;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+#clock {
+    font-family: 'Share Tech Mono', monospace;
+    color: #ffffff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #daf6ff;
+    text-shadow: 0 0 20px rgba(10, 175, 230, 1),  0 0 20px rgba(10, 175, 230, 0);
+}
+
+#time {
+    letter-spacing: 0.05em;
+    font-size: 35vh;
+    padding: 5px 0;
+}
+
+#date {
+    letter-spacing: 0.1em;
+    font-size: 10vh;
+}
+</style>
+<body>
+    <div id="clock">
+        <div id="date">
+
+        </div>
+        <div id="time">
+    
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    function clock() {
+        let current = new Date()
+        let hour = current.getHours() + ':'
+        let minute = current.getMinutes() + ':'
+        let seconds = current.getSeconds() + ''
+        
+        let year = current.getFullYear() + ''
+        let month = (current.getMonth() + 1) + ''
+        let day = current.getDate() + ''
+
+        document.getElementById('time').innerHTML = `${hour.padStart(2, 0)}${minute.padStart(2, 0)}${seconds.padStart(2, 0)}`
+        document.getElementById('date').innerHTML = `${year.padStart(2, 0)}年${month.padStart(2, 0)}月${day.padStart(2, 0)}日`
+
+    }
+
+    setInterval(() => {
+        clock()
+    }, 1000)
+</script>
