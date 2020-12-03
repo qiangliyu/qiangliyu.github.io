@@ -62,15 +62,15 @@ p {
 <script>
     function clock() {
         let current = new Date()
-        let hour = current.getHours() + ':'
-        let minute = current.getMinutes() + ':'
+        let hour = current.getHours() + ''
+        let minute = current.getMinutes() + ''
         let seconds = current.getSeconds() + ''
         
         let year = current.getFullYear() + ''
         let month = (current.getMonth() + 1) + ''
         let day = current.getDate() + ''
 
-        document.getElementById('time').innerHTML = `${hour.padStart(2, 0)}${minute.padStart(2, 0)}${seconds.padStart(2, 0)}`
+        document.getElementById('time').innerHTML = `${hour.padStart(2, 0)}:${minute.padStart(2, 0)}:${seconds.padStart(2, 0)}`
         document.getElementById('date').innerHTML = `${year.padStart(2, 0)}年${month.padStart(2, 0)}月${day.padStart(2, 0)}日`
 
     }
